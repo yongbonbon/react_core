@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        function getSizeImage(imgUrl, size) {
+        return imgUrl + `?param=${size}x${size}`;
+      }
+
+      class App extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            title: "标题",
+            imgUrl:
+              "http://p1.music.126.net/PJylNWy_2-jI7LRgQ2Cm6w==/109951165649129522.jpg",
+            link: "www.baidu.com",
+            active: true,
+          };
+        }
+
+        render() {
+            const {active} = this.state;
+          return (
+            <div>
+              {/*绑定普通属性*/}
+              <h2 title={this.state.title}>我是标题</h2>
+              <img src={getSizeImage(this.state.imgUrl, 140)} alt="" />
+              <a href={this.state.link} target="_blank">百度一下</a>
+
+              {/*绑定class*/}
+              <div className={"box title " + (active ? "active" : "")}>我是div元素</div>
+              <label htmlFor=""></label>
+
+              {/*绑定style*/}
+              <div style={{color: "red", fontSize: '25px'}}>我是div,绑定style</div>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<App />, document.getElementById("app"));
+    </script>
+</body>
+
+</html>
