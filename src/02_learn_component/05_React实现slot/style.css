@@ -1,0 +1,20 @@
+.nav-bar {
+  display: flex;
+}
+
+.nav-left,
+.nav-right {
+  width: 70px;
+  background-color: rgb(228, 74, 74);
+}
+
+.nav-item {
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+}
+
+.nav-center {
+    flex: 1;
+    background-color: blue;
+}
